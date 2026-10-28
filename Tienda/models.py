@@ -21,6 +21,7 @@ class Producto(models.Model):
 class Categoria(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.TextField()
+    imagen = models.ImageField(upload_to='categoria/', blank=True, null=True)
 
     class meta:
         ordering = ['nombre']

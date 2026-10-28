@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block contenido %}
+<h1>Tienda</h1>
+<ul class="carta">
+{% for p in productos %}
+<li>
+<a href="{% url 'Tienda:categoria' p.categoria.id %}">
+{{ p.nombre }}</a>
+
+{% if p.imagen %}
+    <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}" style="height: 100px; border-radius: 5px;" />
+{% endif %}
+
+<span>{{ p.categoria.nombre }}</span>
+<strong>$ {{ p.precio }}</strong>
+</li>
+{% empty %}
+<li>Todavia no hay productos cargados.</li>
+{% endfor %}
+</ul>
+{% endblock %}
