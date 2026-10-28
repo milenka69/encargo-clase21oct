@@ -27,3 +27,14 @@ class Categoria(models.Model):
 
     def __str__(self):
         return self.nombre
+    
+class Reserva(models.Model):
+    nombre = models.CharField(max_length=100)
+    email = models.EmailField()
+    fecha = models.DateField()
+    personas = models.PositiveIntegerField()
+    comentario = models.TextField(blank=True)
+    creada = models.DateField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"{self.nombre} | {self.fecha}"

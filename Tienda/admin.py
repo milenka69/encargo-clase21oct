@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Tienda.models import Producto, Categoria
+from Tienda.models import Producto, Categoria, Reserva
 
 @admin.register(Producto)
 class productoAdmin(admin.ModelAdmin):
@@ -15,3 +15,7 @@ class productoAdmin(admin.ModelAdmin):
 class categoriaAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'descripcion')
     search_fields = ('nombre', 'descripcion')
+
+@admin.register(Reserva)
+class reservaAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'email', 'fecha', 'personas', 'comentario', 'creada')
